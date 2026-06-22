@@ -51,18 +51,87 @@
 """
 
 
-def count_step(step_start, step_end):
-    for step in range(step_start, step_end+1):
-        if step_end > 0:
-            step_start += 1
+# def count_step(step):
+#     if step < 0:
+#         return "Enter valid step"
+#     elif step == 0 or step == 1:
+#         return 1
+#
+#     first_step = 1
+#     second_step = 1
+#
+#     for current_step in range(2, step + 1):
+#         result_step = first_step + second_step
+#         first_step = second_step
+#         second_step = result_step
+#
+#     return second_step
+#
+# user_step = int(input("Please enter your step that u wanna reach: "))
+#
+#
+# result_step = count_step(user_step)
+#
+#
+# print(result_step)
+
+
+
+
+
+
+"""
+
+Завдання 4
+
+Напишіть рекурсивну функцію, яка обчислює суму натуральних чисел, які входять до заданого проміжку.
+"""
+
+
+#
+# def count_numbers(first_number, second_number):
+#     if first_number == second_number:
+#         return first_number
+#
+#     return first_number + count_numbers(first_number + 1, second_number)
+#
+# result = count_numbers(1, 5)
+# print(result)
+
+
+
+"""
+Завдання 5
+
+Створіть функцію quadratic_equation, яка приймає на вхід 3 параметри: a, b, c. 
+Усередині цієї функції створити змінні x1, x2 зі значенням None (спочатку приймаємо, що рівняння не має коренів) 
+та функцію calc_rezult з формальними параметрами зовнішньої функції quadratic_equation. 
+Всередині функції calc_rezult здійснити пошук дискримінанта, згідно з результатом якого зробити розрахунок коренів рівняння. 
+Зовнішня функція quadratic_equation має повернути перелік значень коренів квадратного рівняння. 
+Надати можливість користувачеві ввести з клавіатури формальні параметри для передачі їх у створену функцію quadratic_equation, результати роботи функції відобразити на екрані.
+"""
+
+
+
+
+def quadratic_equation(a, b, c):
+    x1 = None
+    x2 = None
+
+
+    def calc_result(a, b, c):
+        discriminant = b ** 2 - 4 * a * c
+        if discriminant >= 0:
+            x1 = (-b + discriminant ** 0.5 ) / (2 * a)
+            x2 = (-b - discriminant ** 0.5 ) / (2 * a)
+
+            return x1, x2
         else:
-            return "enter valid end step"
-    return
-
-user_step_stop = int(input("Please enter your step that u wanna reach: "))
-user_start_step = int(input("Please enter your start step: "))
-
-result_step = count_step(user_step_stop, user_start_step)
+            return "please enter valid a, b, c numbers"
+    x1 , x2 = calc_result(a, b, c)
+    return x1 , x2
 
 
-print(result_step)
+
+result = quadratic_equation(1, 5, 3)
+print(result)
