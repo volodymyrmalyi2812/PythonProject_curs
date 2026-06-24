@@ -79,7 +79,8 @@
 Фізика
 Інформ
 Історія
-Визначити середній бал оцінок з всіх предметів, і вивести відомості про ня про студентів, середній бал яких більший за 4 яких більше 4.
+Визначити середній бал оцінок з всіх предметів, і вивести відомості про ня про студентів, 
+середній бал яких більший за 4 яких більше 4.
 ------------------------------------------------------------
 """
 
@@ -93,19 +94,30 @@ class School:
         self.informatics = informatics
         self.history = history
 
+    def avg_grade(self):
+        grades = [
+            self.physics,
+            self.informatics,
+            self.history,
+        ]
+        return sum(grades) / len(grades)
+
     def __str__(self):
         return f"{self.group} {self.physics} {self.informatics} {self.history}"
 
 student_1 = School("John", 1, 5, 5, 4)
-student_2 = School("Bob", 2, 4, 3, 3)
+student_2 = School("Bob", 2, 4, 5, 4)
 student_3 = School("Ben", 3, 2, 2, 5)
 
 
 students = [student_1, student_2, student_3]
 
 
-def avg_grade(student_name, grade):
-    best_student = None
-    max_grade = -1
+def show_students(students):
     for student in students:
-        if student.name == student_name or student. == student_name:
+        average = student.avg_grade()
+        if average > 4:
+            print(student.name)
+            print(f"avg grade: {average}")
+
+show_students(students)
