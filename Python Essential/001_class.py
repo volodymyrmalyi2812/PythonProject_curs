@@ -85,44 +85,42 @@
 """
 
 
-
-class School:
-    def __init__(self, name, group, physics, informatics, history):
-        self.name = name
-        self.group = group
-        self.physics = physics
-        self.informatics = informatics
-        self.history = history
-
-    def avg_grade(self):
-        grades = [
-            self.physics,
-            self.informatics,
-            self.history,
-        ]
-        return sum(grades) / len(grades)
-
-    def __str__(self):
-        return f"{self.group} {self.physics} {self.informatics} {self.history}"
-
-student_1 = School("John", 1, 5, 5, 4)
-student_2 = School("Bob", 2, 4, 5, 4)
-student_3 = School("Ben", 3, 2, 2, 5)
-
-
-students = [student_1, student_2, student_3]
-
-
-def show_students(students):
-    for student in students:
-        average = student.avg_grade()
-        if average > 4:
-            print(student.name)
-            print(f"avg grade: {average}")
-
-show_students(students)
-
-
+#
+# class School:
+#     def __init__(self, name, group, physics, informatics, history):
+#         self.name = name
+#         self.group = group
+#         self.physics = physics
+#         self.informatics = informatics
+#         self.history = history
+#
+#     def avg_grade(self):
+#         grades = [
+#             self.physics,
+#             self.informatics,
+#             self.history,
+#         ]
+#         return sum(grades) / len(grades)
+#
+#     def __str__(self):
+#         return f"{self.group} {self.physics} {self.informatics} {self.history}"
+#
+# student_1 = School("John", 1, 5, 5, 4)
+# student_2 = School("Bob", 2, 4, 5, 4)
+# student_3 = School("Ben", 3, 2, 2, 5)
+#
+#
+# students = [student_1, student_2, student_3]
+#
+#
+# def show_students(students):
+#     for student in students:
+#         average = student.avg_grade()
+#         if average > 4:
+#             print(student.name)
+#             print(f"avg grade: {average}")
+#
+# show_students(students)
 
 
 
@@ -135,3 +133,41 @@ show_students(students)
 Дата_продажу
 Визначити кількість товарів, які продані менше року тому і вивести відомості про них.
 """
+
+import datetime
+
+class Shop:
+    def __init__(self, seller, product_name, amount, price, date_of_sale):
+        self.seller = seller
+        self.product_name = product_name
+        self.amount = amount
+        self.price = price
+        self.date_of_sale = date_of_sale
+
+    def young_products(self):
+        one_year = datetime.datetime.now() - self.date_of_sale
+        return one_year
+
+
+    def __str__(self):
+        return f"{self.seller}, {self.product_name}, {self.amount}, {self.price}, {self.date_of_sale}"
+
+
+first_product = Shop("Bob", "apple", 5, 100, datetime.datetime(2026, 5, 1))
+second_product = Shop("John", "banana", 10, 500, datetime.datetime(2024, 3, 22))
+third_product = Shop("Ben", "watermelon", 13, 2600, datetime.datetime(2023, 10, 17))
+
+
+products = [first_product, second_product, third_product]
+def product_in_this_year():
+    for product in products:
+        young = product.young_products()
+        if young < datetime.timedelta(days=365):
+            print(product.product_name)
+            print(product.amount)
+            print(product.price)
+            print(product.date_of_sale)
+
+
+product_in_this_year()
+
