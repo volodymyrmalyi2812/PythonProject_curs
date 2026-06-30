@@ -148,6 +148,6 @@ third_car = Car("Car3", "Model3", 2023)
 cars_at_dealership = CarDealership([first_car, second_car, third_car])
 cars_at_dealership.sell_car(first_car)
 
-print(len(cars_at_dealership.cars))
+
 for car in cars_at_dealership.cars:
     print(car)
