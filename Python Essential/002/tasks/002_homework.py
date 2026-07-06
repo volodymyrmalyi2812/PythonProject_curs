@@ -31,3 +31,48 @@
 
 
 """
+
+
+
+
+"""
+Завдання 1
+
+Створіть клас Editor, який містить методи view_document та edit_document. 
+Нехай метод edit_document виводить на екран інформацію про те, що редагування документів недоступне для безкоштовної версії. 
+Створіть підклас ProEditor, у якому цей метод буде перевизначено. 
+Введіть ліцензійний ключ із клавіатури і, якщо він коректний, створіть екземпляр класу ProEditor, інакше Editor. 
+Викликайте методи перегляду та редагування документів.
+"""
+
+
+class Editor:
+    def view_document(self):
+        return "you can view your document"
+    def edit_document(self):
+        return "редагування документів недоступне для безкоштовної версії"
+
+class ProEditor(Editor):
+    def edit_document(self):
+        return "редагування документів доступне"
+
+
+
+license_key = int(input("Please enter your key: "))
+
+
+
+
+if license_key == 0:
+    user_editor = Editor()
+    print("You can use free version")
+elif license_key == 1:
+    user_editor = ProEditor()
+    print("your license key is correct ")
+else:
+    user_editor = Editor()
+    print("Please enter a valid key")
+
+
+user_editor.view_document()
+user_editor.edit_document()
