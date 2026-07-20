@@ -31,9 +31,7 @@
 
 
 """
-
-
-
+from pyclbr import Class
 
 """
 Завдання 1
@@ -46,33 +44,107 @@
 """
 
 
-class Editor:
-    def view_document(self):
-        return "you can view your document"
-    def edit_document(self):
-        return "редагування документів недоступне для безкоштовної версії"
+# class Editor:
+#     def view_document(self):
+#         return "you can view your document"
+#     def edit_document(self):
+#         return "редагування документів недоступне для безкоштовної версії"
+#
+# class ProEditor(Editor):
+#     def edit_document(self):
+#         return "редагування документів доступне"
+#
+#
+#
+# license_key = int(input("Please enter your key: "))
+#
+#
+#
+#
+# if license_key == 0:
+#     user_editor = Editor()
+#     print("You can use free version")
+# elif license_key == 1:
+#     user_editor = ProEditor()
+#     print("your license key is correct ")
+# else:
+#     user_editor = Editor()
+#     print("Please enter a valid key")
+#
+#
+# user_editor.view_document()
+# user_editor.edit_document()
 
-class ProEditor(Editor):
-    def edit_document(self):
-        return "редагування документів доступне"
 
 
 
-license_key = int(input("Please enter your key: "))
+"""
+Завдання 2
+
+Опишіть класи графічного об'єкта, прямокутника та об'єкта, який може обробляти натискання миші. 
+Опишіть клас кнопки. Створіть об'єкт кнопки та звичайного прямокутника. Викличте метод натискання на кнопку.
+"""
+
+#
+# class Object:
+#     def __init__(self, x_coordinate, y_coordinate):
+#         self.x_coordinate = x_coordinate
+#         self.y_coordinate = y_coordinate
+#
+# class Rectangle(Object):
+#     def __init__(self, x_coordinate, y_coordinate, width, height):
+#         super().__init__(x_coordinate, y_coordinate)
+#         self.width = width
+#         self.height = height
+#
+#
+#
+# class Clickable:
+#     def click(self):
+#             print("You clicked the button")
+#
+# class Button(Rectangle, Clickable):
+#     def __init__(self, x_coordinate, y_coordinate, width, height):
+#         super().__init__(x_coordinate, y_coordinate, width, height)
+#
+# button = Button(10, 30, 100, 100)
+# rectangle = Rectangle(100, 100, 200, 200)
+#
+# button.click()
 
 
 
 
-if license_key == 0:
-    user_editor = Editor()
-    print("You can use free version")
-elif license_key == 1:
-    user_editor = ProEditor()
-    print("your license key is correct ")
-else:
-    user_editor = Editor()
-    print("Please enter a valid key")
+"""
+Завдання 3
+
+Створіть ієрархію класів із використанням множинного успадкування. 
+Виведіть на екран порядок вирішення методів для кожного класу. 
+Поясніть, чому лінеаризація даних класів виглядає саме так.
+"""
 
 
-user_editor.view_document()
-user_editor.edit_document()
+
+# class First:
+#     pass
+# class Second(First):
+#     pass
+# class Third(First):
+#     pass
+# class Fourth(Second, Third):
+#     pass
+#
+# print(First.mro())
+# print(Second.mro())
+# print(Third.mro())
+# print(Fourth.mro())
+#то есть в строке 140 четвертый класс наследует в начале от второго а уже потом от третьего потому что мы передали в 134 строке в скобках в начале second а уже потом third
+
+
+"""
+Завдання 5
+
+Використовуючи код example_10, створіть декоратор @staticmethod для визначення повноліття людини в Україні та Америки.
+"""
+
+
