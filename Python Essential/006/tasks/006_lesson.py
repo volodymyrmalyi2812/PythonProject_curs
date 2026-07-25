@@ -1,14 +1,4 @@
 """
-OOP. 2
-Виконавець
-Жанр
-Назва альбому
-Тираж
-
-Вивести дані про платівки, тираж яких перевищує 10000 примірників.
-
-
-
 OOP. 1
 Прізвище
 Група
@@ -37,7 +27,16 @@ OOP. 3
 """
 
 
+'''
+OOP. 2
+Виконавець
+Жанр
+Назва альбому
+Тираж
 
+Вивести дані про платівки, тираж яких перевищує 10000 примірників.
+
+'''
 
 class Record:
     def __init__(self, name, genre, name_of_album, amount):
@@ -63,9 +62,7 @@ class Record:
         return self.__amount
 
     def __str__(self):
-        return f'{self.__name}, {self.__genre}, {self.__amount}, {self.__name_of_album}'
-
-
+        return f'{self.__name}, {self.__genre}, {self.__name_of_album}, {self.__amount}'
 
 
 
@@ -84,7 +81,7 @@ products = [first_product, second_product, third_product, fourth_product, fifth_
 
 # def get_list_of_products():
 #     for product in products:
-#         get_amount = product.get_amount()
+#         get_amount = product.get_amount
 #         if get_amount > 10000:
 #             print(product)
 # get_list_of_products()
@@ -98,7 +95,7 @@ while True:
     try:
         product = next(iterator)
 
-        if product.get_amount() > 10000:
+        if product.get_amount > 10000:
             print(product)
 
     except StopIteration:
