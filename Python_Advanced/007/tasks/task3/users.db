@@ -1,0 +1,20 @@
+import smtplib
+from email.message import EmailMessage
+
+
+def send_email(user: User) -> None:
+    sender: str = "your_email@gmail.com"
+    password: str = "your_app_password"
+
+    message = EmailMessage()
+    message["From"] = sender
+    message["To"] = user.email
+    message["Subject"] = "Registration"
+
+    message.set_content(
+        f"Hello, {user.first_name}! Thank you for registration."
+    )
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(sender, password)
+        server.send_message(message)
