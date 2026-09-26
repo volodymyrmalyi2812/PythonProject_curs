@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<school>
+  <student id="1">
+    <name>Alex</name>
+    <age>18</age>
+    <city>Hamburg</city>
+  </student>
+  <student id="2">
+    <name>Max</name>
+    <age>20</age>
+    <city>Berlin</city>
+  </student>
+</school>
